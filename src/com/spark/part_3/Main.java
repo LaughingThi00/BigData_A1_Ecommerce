@@ -1,5 +1,7 @@
 package com.spark.part_3;
 
+import java.util.Scanner;
+
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
@@ -11,8 +13,14 @@ public class Main {
 				.option("inferSchema", true)
 				.option("header", true)
 				.csv("hdfs://localhost:9000/retails.csv");
-		
+
 		data.createOrReplaceTempView("data");
-		spark.sql("select Country, sum(Quantity) as count from data group by Country order by count desc").show();
+		spark.sql("select Country, sum(Quantity) as count from data group by Country order by count desc").show(100);
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("End? (Y/N):");
+		char userInput = scanner.next().charAt(0);
+		scanner.close();
+
 	}
 }
