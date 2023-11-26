@@ -19,6 +19,11 @@
 			<version>3.1.2</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-mllib_2.13</artifactId>
+			<version>3.5.0</version> <!-- Thay đổi phiên bản tùy thuộc vào Spark version bạn đang sử dụng -->
+		</dependency>
 	</dependencies>
 	<build>
 		<sourceDirectory>src</sourceDirectory>

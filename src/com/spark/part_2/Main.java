@@ -25,7 +25,7 @@ public class Main {
 
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("End? (Y/N):");
-		char userInput = scanner.next().charAt(0);
+		scanner.next().charAt(0);
 		scanner.close();
 	}
 }
