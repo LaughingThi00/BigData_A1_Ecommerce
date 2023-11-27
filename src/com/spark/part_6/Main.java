@@ -22,9 +22,10 @@ public class Main {
                 .option("header", true)
                 .csv("hdfs://localhost:9000/retails.csv");
 
-        // Select relevant features for clustering (assuming features are in columns "Quantity" and "UnitPrice")
+        // Select relevant features for clustering (assuming features are in columns
+        // "Quantity" and "UnitPrice")
         VectorAssembler assembler = new VectorAssembler()
-                .setInputCols(new String[]{"Quantity", "UnitPrice"})
+                .setInputCols(new String[] { "Quantity", "UnitPrice" })
                 .setOutputCol("features");
 
         Dataset<Row> assembledData = assembler.transform(data).select("features");
@@ -53,8 +54,11 @@ public class Main {
 
         // Get cluster centers
         Vector[] clusterCenters = model.clusterCenters();
+        KMeansSummary summary = model.summary();
+
         for (int i = 0; i < clusterCenters.length; i++) {
-            System.out.println("Cluster " + i + " center: " + clusterCenters[i]);
+            System.out
+                    .println("Cluster " + i + " center: " + clusterCenters[i] + " size: " + summary.clusterSizes()[i]);
         }
 
         // Predict clusters for the data

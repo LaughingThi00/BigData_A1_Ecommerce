@@ -41,7 +41,7 @@
 
 ## Mục Đích
 
-   Tập dữ liệu này chứa thông tin chi tiết về các giao dịch mua sắm trong lĩnh vực bán lẻ. Mỗi hàng dữ liệu đại diện cho một sản phẩm được mua bán, và các thuộc tính cung cấp thông tin hữu ích để phân tích hành vi khách hàng, quản lý kho hàng và đưa ra các quyết định kinh doanh.
+   Tập dữ liệu này chứa thông tin chi tiết về các giao dịch mua sắm trong lĩnh vực bán lẻ của một doanh nghiệp tại Anh. Mỗi hàng dữ liệu đại diện cho một lần giao dịch với một loại sản phẩm. File CSV này lưu lại các thuộc tính cung cấp thông tin hữu ích để phân tích hành vi khách hàng, quản lý kho hàng và đưa ra các quyết định kinh doanh.
 
 ## Đối Tượng Sử Dụng
 
@@ -68,7 +68,7 @@
    2. **Phân Tích Cơ Bản:**
       -Spark SQL
       -Kmeans
-      -Clustering
+      -FPGrowth
 
    ### Phần 2. Chạy lệnh: 
 
@@ -94,6 +94,6 @@
 
       4. **Chạy project với spark-submit:** 
       ```
-      spark-submit --class com.spark.part_X.Main target/Retails-V1.jar
+      spark-submit --class com.spark.part_X.Main  --conf spark.log.level=ERROR target/Retails-V1.jar
       ```
 
